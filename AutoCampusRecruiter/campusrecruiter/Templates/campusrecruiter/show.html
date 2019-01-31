@@ -24,5 +24,40 @@
         </ul>
 </nav>
 <br/>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h1>Students<small class="text-muted"> Registered</small>
+            </h1>
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Student Name</th>
+                            <th scope="col">College</th>
+                            <th scope="col">Roll Number</th>
+                            <th scope="col">GPA</th>
 
+                        </tr>
+                    </thead>
+            {% for student in studentlist %}
+
+                    <tbody>
+                        <tr>
+                            <th scope="row"></th>
+                            <td>{{student.student_name}}</td>
+                            <td>{{student.student_coll}}</td>
+                            <td>{{student.roll_no}}</td>
+                            <td>{{student.student_gpa}} </td>
+
+                        </tr>
+                    </tbody>
+                {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
 {% endblock content %}

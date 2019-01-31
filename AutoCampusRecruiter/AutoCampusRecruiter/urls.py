@@ -18,10 +18,13 @@ from django.urls import path
 from campusrecruiter import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.login,name="login"),
+    path('login/',views.login,name="login"),
     path('home/', views.home, name="home"),
     path('create/', views.create, name="create"),
     path('accounts/auth/', views.auth_view, name="auth"),
     path('show/', views.show, name="show"),
+    path('registration/', views.studentReg, name="studentReg"),
+    path('success/', views.success, name="success"),
+    path('logout/', views.logout_view, name="logout"),
 
 ]

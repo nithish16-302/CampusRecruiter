@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib import auth
 from django.http import HttpResponse
 from django.views.decorators import csrf
-from .forms import AddForm
+from .forms import AddForm,AddStudents
 from .models import Recruitment,Students
+from django.contrib.auth import logout
+
 
 # Create your views here.
 def login(requests):
@@ -44,3 +46,29 @@ def create(requests):
 def show(requests):
     studentslist = Students.objects.all()
     return render(requests,"campusrecruiter/show.html",{'studentlist':studentslist})
+
+def studentReg(requests):
+    return render(requests,"campusrecruiter/studentReg.html")
+
+def success(requests):
+    if requests.method == 'POST':
+        django_form = AddStudents(requests.POST)
+        if django_form.is_valid():
+            new_student_name = django_form.data.get("stuName")
+            new_college = django_form.data.get("collName")
+            new_rollno = django_form.data.get("rollno")
+            new_gpa = django_form.data.get("stugpa")
+            Students.objects.create(
+                student_name = new_student_name,
+                student_coll = new_college,
+                roll_no = new_rollno,
+                student_gpa = new_gpa
+
+            )
+
+    return render(requests, 'campusrecruiter/success.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('/login')
+

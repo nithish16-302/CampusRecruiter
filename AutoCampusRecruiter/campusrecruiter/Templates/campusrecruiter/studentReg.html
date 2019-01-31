@@ -7,36 +7,40 @@
      </button>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href={% url 'login'%}>Home</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#">Recruiters</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">AboutUs</a>
             </li>
         </ul>
-    </nav>
+
+</nav>
 <br/>
-<form action='/accounts/auth/' method='POST'> {% csrf_token %}
+<form action={% url 'success'%} method='POST'>{% csrf_token %}
     <div class="container">
         <div class="row">
-            <div class="col-sm-3"></div>
+            <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="card card-1 bg-dark text-white text-center grid-selection">
-                    <h1>Login</h1>
+                <h1>Student Registration..</h1>
                     <div class="form-group">
-                        <input type='text' class="form-control" name='Username' id='username' placeholder="User Name"><br/>
+                        <input type='text' class="form-control" name='stuName' id='stuName' placeholder="Student Name"><br/>
                     </div>
                     <div class="form-group">
-                        <input type='password' class="form-control" name='Password' id='password' placeholder="password"><br/>
+                        <input type='text' class="form-control" name='collName' id='collName' placeholder="College"><br/>
                     </div>
-                    <input type='submit' class="btn btn-secondary" value='login'>
-                </div>
+                    <div class="form-group">
+                        <input type='text' class="form-control" name='rollno' id='rollno' placeholder="Roll Number"><br/>
+                    </div>
+                    <div class="form-group">
+                        <input type='text' class="form-control" name='stugpa' id='stugpa' placeholder="Student GPA"><br/>
+                    </div>
+                <input type='submit' class="btn btn-secondary" value='Register'>
+
             </div>
+
         </div>
     </div>
-</form>
 
+</form>
 
 {% endblock content %}

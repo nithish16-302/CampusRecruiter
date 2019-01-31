@@ -18,7 +18,7 @@
         </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ">
-                    <a class="nav-link" href={% url 'login'%}>logout</a>
+                    <a class="nav-link" href={% url 'logout'%}>logout</a>
                 </li>
             </ul>
         </ul>
@@ -50,7 +50,7 @@
 </form><br/>
 <form action={% url 'show'%}>
     <div class="container">
-        <h2 class="">Currently Recruiting..</h2>
+        <h2 class="">Currently Recruiting in..</h2>
         {% for college in colleges %}
 
         <div class="card text-left">

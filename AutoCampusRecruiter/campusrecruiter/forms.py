@@ -6,7 +6,7 @@ class AddForm(forms.Form):
 
    class Meta:
       model = Recruitment
-      fields = ('col_name', 'col_address',)
+      fields = ('col_name', 'col_address','username')
 
 
 class AddStudents(forms.Form):
