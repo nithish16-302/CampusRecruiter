@@ -26,5 +26,6 @@ urlpatterns = [
     path('registration/', views.studentReg, name="studentReg"),
     path('success/', views.success, name="success"),
     path('logout/', views.logout_view, name="logout"),
+    path('utils/pdf/', views.GeneratePdf.as_view(), name="pdf"),
 
 ]

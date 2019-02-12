@@ -42,8 +42,7 @@
 
                         </tr>
                     </thead>
-            {% for student in studentlist %}
-
+                {% for student in studentlist %}
                     <tbody>
                         <tr>
                             <th scope="row"></th>
@@ -51,13 +50,16 @@
                             <td>{{student.student_coll}}</td>
                             <td>{{student.roll_no}}</td>
                             <td>{{student.student_gpa}} </td>
-
                         </tr>
                     </tbody>
                 {% endfor %}
                 </table>
 
         </div>
+        <div class="col-md-3">
+                <button class="btn btn-dark">StartFirstRound</button>
+        </div>
     </div>
 </div>
+
 {% endblock content %}

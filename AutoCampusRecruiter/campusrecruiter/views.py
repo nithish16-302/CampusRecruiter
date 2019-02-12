@@ -1,10 +1,17 @@
 from django.shortcuts import render,redirect
 from django.contrib import auth
 from django.http import HttpResponse
+from django.utils import timezone
+
 from django.views.decorators import csrf
 from .forms import AddForm,AddStudents
 from .models import Recruitment,Students
 from django.contrib.auth import logout
+from .utils import render_to_pdf
+from django.views.generic import View
+
+
+
 
 
 # Create your views here.
@@ -71,4 +78,15 @@ def success(requests):
 def logout_view(request):
     logout(request)
     return redirect('/login')
+
+class GeneratePdf(View):
+    def get(self, *args, **kwargs):
+        #data = {
+           #  'today': timezone.now(),
+            # 'amount': 39.99,
+           # 'customer_name': 'Cooper Mann',
+           # 'order_id': 1233434,
+       # }
+        pdf = render_to_pdf('campusrecruiter/invoice.html')
+        return HttpResponse(pdf, content_type='application/pdf')
 
